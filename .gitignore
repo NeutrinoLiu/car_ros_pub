@@ -1,0 +1,9 @@
+.DS_Store
+*/.DS_Store
+catkin_ws/build/*
+catkin_ws/devel/*
+catkin_ws/.catkin_workspace
+.ros/*
+.vs/*
+.bash_history
+.python_history

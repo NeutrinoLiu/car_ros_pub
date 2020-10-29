@@ -1,8 +1,0 @@
-prefix=/home/sxue8/catkin_ws/devel
-
-Name: autonomous
-Description: Description of autonomous
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
