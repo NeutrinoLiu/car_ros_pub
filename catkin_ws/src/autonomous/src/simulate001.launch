@@ -1,0 +1,9 @@
+<launch>
+
+  <group ns="car_simulate">
+    <node pkg="autonomous" name="localization_node" type="localizationNode_simulated.py"/>
+    <node pkg="autonomous" name="objectDetection_node" type="objectDetectionNode_simulated.py"/>
+    <node pkg="autonomous" name="controller_node" type="controller.py"/>
+  </group>
+
+</launch>

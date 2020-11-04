@@ -8,9 +8,11 @@ project(autonomous)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
   roscpp
   rospy
   std_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,8 +49,14 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
+add_message_files(
+  FILES 
+  CoordCMD.msg
+  Localization.msg
+  MotorCMD.msg
+  ObjDetect.msg
+)
+
 #   Message1.msg
 #   Message2.msg
 # )
@@ -68,9 +76,11 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  geometry_msgs
+)
 # )
 
 ################################################
@@ -107,8 +117,8 @@ catkin_package(
 #  LIBRARIES autonomous
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs message_runtime
 )
-
 ###########
 ## Build ##
 ###########
