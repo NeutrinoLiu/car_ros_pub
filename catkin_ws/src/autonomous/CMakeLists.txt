@@ -55,6 +55,7 @@ add_message_files(
   Localization.msg
   MotorCMD.msg
   ObjDetect.msg
+  TaskCMD.msg
 )
 
 #   Message1.msg
