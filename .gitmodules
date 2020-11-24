@@ -1,0 +1,3 @@
+[submodule "base_station"]
+	path = base_station
+	url = https://github.com/Autonomous-RC-Car-System/base_station

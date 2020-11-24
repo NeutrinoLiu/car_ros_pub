@@ -1,0 +1,22 @@
+# Assume that the car starts at its docking station
+
+LOOP, TIMES:3
+WAIT_AT_BARRIER, NAME:loopStart, COUNT:3
+START_CLOCK
+
+# Drive to starting position and then stop
+DRIVE_TO, X:0 , Y:0 , TIME:10, STOP:true
+
+# Start trajectory toward (50, 50)
+DRIVE_TO, X:25, Y:0 , TIME:15, STOP:false
+DRIVE_TO, X:40, Y:10, TIME:20, STOP:false
+DRIVE_TO, X:50, Y:25, TIME:25, STOP:false
+DRIVE_TO, X:50, Y:50, TIME:25, STOP:true
+# The car is now stopped at (50, 50)
+
+PARK
+
+LOOP_END
+
+RETURN_TO_DOCK
+# The car ends in its docking station

@@ -1,12 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 from std_msgs.msg import String
-from autonomous.msg import Localization, ObjDetect
+from autonomous.msg import Localization, ObjDetect, TaskCMD
 from math import sqrt
 
 trajectory = "0,0,0"
 car_pos = Localization()
 object_pos = ObjDetect()
+task_queue = []
 
 def update_car_pos(data):
     global car_pos
@@ -17,6 +18,11 @@ def update_object_pos(data):
     global object_pos
 #    rospy.loginfo(rospy.get_caller_id()+ "Object detected: %s",data.x,data.y)
     object_pos = data
+
+def get_new_task(data):
+    global task_queue
+    task_queue.append(data)
+    print("a new task of type %d is received." % (data.task_type))
 
 def get_distance(xa,xb, ya, yb):
     d = sqrt((xa-xb)**2+(ya-yb)**2)
@@ -40,7 +46,9 @@ def talker():
     #create subscriber
     rospy.Subscriber("Location_info", Localization, update_car_pos)
     #create subscriber
-    rospy.Subscriber("Object_Detection",ObjDetect, update_object_pos)
+    rospy.Subscriber("Object_Detection", ObjDetect, update_object_pos)
+    #create subscriber for task queue
+    rospy.Subscriber("Task_Delivery", TaskCMD, get_new_task)
 
     #creat a publisher
     pub = rospy.Publisher("Trajectory",String,queue_size = 10)
