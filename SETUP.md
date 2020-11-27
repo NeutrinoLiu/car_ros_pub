@@ -14,7 +14,7 @@ docker run -it ubuntu /bin/bash
 apt update
 apt install sudo vim
 adduser car
-usermod -a -G sudo car
+usermod -a -G sudo car lsb-release gnupg
 echo "su car" >> /root/.bashrc
 ```
 (The last bit logs you in as user "car" when you enter the container.)
@@ -25,3 +25,7 @@ docker ps -a
 docker container start <CONTAINER ID>
 docker exec -it <CONTAINER ID> /bin/bash
 ```
+
+## Step 1: Install ROS
+
+Instructions: [http://wiki.ros.org/melodic/Installation/Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu)
