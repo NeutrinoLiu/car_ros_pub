@@ -45,14 +45,7 @@ catkin_make
 echo "source /home/car/car_ros/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
-## Step 4: Install python packages
-
-```
-sudo apt install python-pip
-pip install pyyaml
-```
-
-## Step 5: Run ROS
+## Step 4: Run ROS
 
 ```
 roscore
